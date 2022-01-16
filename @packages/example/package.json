@@ -1,0 +1,17 @@
+{
+  "name": "@mocking/module-a",
+  "version": "3.0.0",
+  "license": "MIT",
+  "main": "index.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "private": false,
+  "type": "module",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "vite": "^2.7.12",
+    "vitest": "^0.1.15",
+    "@mocking/module-b": "3.0.0"
+  }
+}

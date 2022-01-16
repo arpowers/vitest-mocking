@@ -1,0 +1,14 @@
+{
+  "name": "@mocking/module-b",
+  "version": "3.0.0",
+  "license": "MIT",
+  "main": "index.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "private": false,
+  "type": "module",
+  "dependencies": {
+    "@mocking/module-a": "3.0.0"
+  }
+}

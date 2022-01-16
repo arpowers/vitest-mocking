@@ -1,0 +1,23 @@
+{
+  "name": "vitest-mocking",
+  "version": "3.0.0",
+  "license": "MIT",
+  "main": "index.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "private": false,
+  "type": "module",
+  "dependencies": {
+    "@factor/api": "^3.5.1",
+    "@factor/server-utils": "^3.5.1",
+    "@factor/types": "^3.5.1",
+    "bcrypt": "^5.0.1",
+    "knex-stringcase": "^1.4.6",
+    "vite": "^2.7.12",
+    "vitest": "^0.1.15"
+  },
+  "workspaces": [
+    "@packages/*"
+  ]
+}
