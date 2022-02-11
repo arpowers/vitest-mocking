@@ -1,23 +1,40 @@
-import { assert, expect, test, vi } from "vitest";
+import { expect, test } from "vitest"
 
-import * as ep from "../example";
+export const waitFor = (ms: number): Promise<void> => {
+  return new Promise((resolve) => setTimeout(resolve, ms || 0))
+}
 
-vi.mock("../example", async () => {
-  console.log("START IMPORT ACTUAL");
-  const actual = await vi.importActual("../example");
-  console.log("END IMPORT ACTUAL");
-  return actual;
-});
-
-test("someTest", async () => {
-  console.warn("???", ep);
+test("basic", () => {
   const input = {
     foo: "hello",
     bar: "world",
-  };
+  }
 
-  const output = JSON.stringify(input);
+  const output = JSON.stringify(input)
 
-  expect(output).eq('{"foo":"hello","bar":"world"}');
-  assert.deepEqual(JSON.parse(output), input, "matches original");
-});
+  expect(output).eq('{"foo":"hello","bar":"world"}')
+})
+
+test("basic2", () => {
+  const input = {
+    foo: "hello",
+    bar: "world",
+  }
+
+  const output = JSON.stringify(input)
+
+  expect(output).eq('{"foo":"hello","bar":"world"}')
+})
+
+test("async test", async () => {
+  const input = {
+    foo: "hello",
+    bar: "world",
+  }
+
+  waitFor(2000)
+
+  const output = JSON.stringify(input)
+
+  expect(output).eq('{"foo":"hello","bar":"world"}')
+})
