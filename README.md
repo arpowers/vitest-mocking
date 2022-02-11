@@ -9,4 +9,4 @@ npm i
 npx vitest
 ```
 
-You should see the testing hang.
+You should see all tests skipped with no reason for them to do so...
