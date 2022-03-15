@@ -1,40 +1,32 @@
-import { expect, test } from "vitest"
+/**
+ * External dependencies.
+ */
+import { describe, it, vi } from "vitest"
 
-export const waitFor = (ms: number): Promise<void> => {
-  return new Promise((resolve) => setTimeout(resolve, ms || 0))
-}
+/**
+ * Internal dependencies.
+ */
+import { QueryUserGoogleAuth } from "../example"
 
-test("basic", () => {
-  const input = {
-    foo: "hello",
-    bar: "world",
+vi.mock("google-auth-library", () => {
+  return {
+    OAuth2Client: vi.fn(() => ({
+      verifyIdToken: vi.fn(() => {
+        return {
+          sub: "103755555555503471",
+        }
+      }),
+    })),
   }
-
-  const output = JSON.stringify(input)
-
-  expect(output).eq('{"foo":"hello","bar":"world"}')
 })
 
-test("basic2", () => {
-  const input = {
-    foo: "hello",
-    bar: "world",
-  }
-
-  const output = JSON.stringify(input)
-
-  expect(output).eq('{"foo":"hello","bar":"world"}')
-})
-
-test("async test", async () => {
-  const input = {
-    foo: "hello",
-    bar: "world",
-  }
-
-  waitFor(2000)
-
-  const output = JSON.stringify(input)
-
-  expect(output).eq('{"foo":"hello","bar":"world"}')
+describe("Run Token", () => {
+  it("token", async () => {
+    const q = new QueryUserGoogleAuth()
+    const action = await q.run({
+      _action: "loginWithCredential",
+      credential: "not-a-credential",
+    })
+    console.log("action", action)
+  })
 })

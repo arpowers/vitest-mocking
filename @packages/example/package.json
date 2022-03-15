@@ -10,8 +10,8 @@
   "type": "module",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "google-auth-library": "^7.14.0",
     "vite": "^2.7.12",
-    "vitest": "^0.1.15",
-    "@mocking/module-b": "3.0.0"
+    "vitest": "^0.1.15"
   }
 }
